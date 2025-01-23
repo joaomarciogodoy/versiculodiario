@@ -1,0 +1,187 @@
+/* App.css */
+
+/* Configuração de estilo global */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9; /* Fundo suave */
+  color: #333; /* Texto escuro e suave */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 15px;
+}
+
+/* Estilo para o container principal */
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+  background-color: #ffffff; /* Fundo claro para o container */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-top: 10px;
+}
+
+/* Título principal */
+h1 {
+  font-size: 22px;
+  color: #2c3e50; /* Tom escuro, mas suave */
+  margin-bottom: 15px;
+}
+
+/* Título do versículo */
+h2 {
+  font-size: 18px;
+  color: #2980b9; /* Azul suave */
+  margin-top: 20px;
+}
+
+/* Texto do versículo */
+p {
+  font-size: 16px;
+  color: #555; /* Cinza suave para o texto */
+  line-height: 1.5;
+  margin: 15px 0;
+}
+
+/* Estilo do botão */
+button {
+  background-color: #3498db; /* Azul suave */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  width: 100%; /* Botão ocupa a largura total no mobile */
+}
+
+button:hover {
+  background-color: #2980b9; /* Azul mais escuro no hover */
+}
+
+/* Estilo do botão WhatsApp */
+.whatsapp-button {
+  background-color: #25D366;
+  padding: 14px 20px;
+  font-size: 18px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%; /* Botão ocupa a largura total no mobile */
+  transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  background-color: #128C7E; /* Tom de verde mais escuro no hover */
+}
+
+/* Estilo do ícone do FontAwesome */
+.whatsapp-button i {
+  margin-right: 10px;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  .container {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .whatsapp-button {
+    font-size: 16px;
+    padding: 14px 20px;
+  }
+}
+
+/* Ajustes para telas maiores (notebooks e desktops) */
+@media (min-width: 601px) {
+  .container {
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 14px 30px;
+  }
+
+  .whatsapp-button {
+    font-size: 18px;
+    padding: 14px 30px;
+  }
+}
+
+/* Ajustes para telas grandes (desktops) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 700px;
+    padding: 40px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 20px;
+    padding: 16px 35px;
+  }
+
+  .whatsapp-button {
+    font-size: 20px;
+    padding: 16px 35px;
+  }
+}

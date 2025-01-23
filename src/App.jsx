@@ -1,0 +1,62 @@
+import React, { useState } from 'react';
+import './App.css';
+
+const BibleVerse = () => {
+  const [verse, setVerse] = useState(null); // Inicializado como null
+  const [loading, setLoading] = useState(false);
+
+  const fetchRandomVerse = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch('https://bible-api.com/data/almeida/random');
+      const data = await response.json();
+
+      const book = data.random_verse.book;
+      const chapter = data.random_verse.chapter;
+      const verseNumber = data.random_verse.verse;
+      const textFromVerse = data.random_verse.text;
+
+      // Atualizando o estado como um objeto
+      setVerse({
+        reference: `${book} ${chapter}:${verseNumber}`,
+        text: textFromVerse,
+      });
+    } catch (error) {
+      setVerse({
+        reference: 'Erro',
+        text: 'Erro ao buscar o versículo. Por favor, tente novamente.',
+      });
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const shareOnWhatsApp = () => {
+    if (verse) {
+      const message = `${verse.reference} - "${verse.text}"`;
+      const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+  };
+
+  return (
+    <div className="container">
+      <h1>Gerador de Versículos Bíblicos</h1>
+      <button onClick={fetchRandomVerse} disabled={loading}>
+        {loading ? 'Carregando...' : 'Gerar Versículo'}
+      </button>
+      {verse && (
+        <div>
+          <h2>{verse.reference}</h2>
+          <p>{verse.text}</p>
+          <button className="whatsapp-button" onClick={shareOnWhatsApp}>
+            <i className="fab fa-whatsapp"></i> Compartilhar no WhatsApp
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default BibleVerse;
