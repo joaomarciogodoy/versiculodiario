@@ -41,9 +41,23 @@ const BibleVerse = () => {
     }
   };
 
+  const copyCNPJ = () => {
+    const cnpj = '23.773.094/0001-37';
+    const cnpjWithoutSpecialChars = cnpj.replace(/[^\d]/g, ''); // Remove . e /
+    navigator.clipboard.writeText(cnpjWithoutSpecialChars)
+      .then(() => {
+        alert('CNPJ copiado: ' + cnpjWithoutSpecialChars);
+      })
+      .catch(err => {
+        console.error('Erro ao copiar CNPJ: ', err);
+      });
+  };
+
   return (
-    <div className="container">
-      <h1>Gerador de Versículos Bíblicos</h1>
+   <>
+   
+   <div className="container">
+      <h1>Versículo Diário</h1>
       <button onClick={fetchRandomVerse} disabled={loading}>
         {loading ? 'Carregando...' : 'Gerar Versículo'}
       </button>
@@ -65,9 +79,21 @@ const BibleVerse = () => {
             />
           </div>
           <div className="cnpj">
-            <h4>CNPJ: 12.345.678/0001-90</h4>
-          </div>
+        <h4>
+          CNPJ: 23.773.094/0001-37 
+          <br /><br />
+          <button onClick={copyCNPJ} className='copy-button'>
+            Copiar CNPJ
+          </button>
+        </h4>
+      </div>
+     
     </div>
+    <footer className="footer">
+        <p>Desenvolvido por Igreja Evangélica Restitui</p>
+      </footer>
+   </>
+    
   );
 };
 
