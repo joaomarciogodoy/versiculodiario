@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import pixQrCode from './assets/pix.jpg'; 
 
 const BibleVerse = () => {
   const [verse, setVerse] = useState(null); // Inicializado como null
@@ -34,7 +35,7 @@ const BibleVerse = () => {
 
   const shareOnWhatsApp = () => {
     if (verse) {
-      const message = `${verse.reference} - "${verse.text}"`;
+      const message = `${verse.reference} - ${verse.text}`;
       const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank');
     }
@@ -51,10 +52,21 @@ const BibleVerse = () => {
           <h2>{verse.reference}</h2>
           <p>{verse.text}</p>
           <button className="whatsapp-button" onClick={shareOnWhatsApp}>
-            <i className="fab fa-whatsapp"></i> Compartilhar no WhatsApp
+            <i className="fab fa-whatsapp fa-xl"></i> Compartilhar no WhatsApp
           </button>
         </div>
       )}
+
+<div className="pix-donation">
+            <h3>Faça uma doação via Pix</h3>
+            <img
+              src={pixQrCode} alt="QR Code Pix"
+              className="pix-qr-code"
+            />
+          </div>
+          <div className="cnpj">
+            <h4>CNPJ: 12.345.678/0001-90</h4>
+          </div>
     </div>
   );
 };
